@@ -44,6 +44,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    ads_account = models.CharField(null=True,blank=True,max_length=255,)
+    first_name = models.CharField(null=True,blank=True,max_length=255,)
+    last_name = models.CharField(null=True,blank=True,max_length=255,)
+    business_name = models.CharField(null=True,blank=True,max_length=255,)
+    phone = models.CharField(null=True,blank=True,max_length=255,)
+    industry = models.CharField(null=True,blank=True,max_length=255,)
+    sub_industry = models.CharField(null=True,blank=True,max_length=255,)
+
     auth_provider = models.CharField(
         max_length=255, blank=False,
         null=False, default=AUTH_PROVIDERS.get('email'))

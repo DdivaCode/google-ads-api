@@ -146,3 +146,17 @@ class LogoutSerializer(serializers.Serializer):
 
         except TokenError:
             self.fail('bad_token')
+
+class UserSerializer(serializers.Serializer):
+
+    ads_account = serializers.CharField(max_length=500, write_only=True,allow_blank=True)
+    first_name = serializers.CharField(max_length=500, write_only=True,allow_blank=True)
+    business_name = serializers.CharField(max_length=500, write_only=True,allow_blank=True)
+    phone = serializers.CharField(max_length=500, write_only=True,allow_blank=True)
+    industry = serializers.CharField(max_length=500, write_only=True,allow_blank=True)
+    sub_industry = serializers.CharField(max_length=500, write_only=True,allow_blank=True)
+    last_name = serializers.CharField(max_length=500, write_only=True,allow_blank=True)
+    
+    class Meta:
+        model = User
+        fields = ['ads_account','first_name','last_name','business_name','phone','industry','sub_industry']
